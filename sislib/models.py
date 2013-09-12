@@ -3,6 +3,15 @@ from django.db import models
 
 # Create your models here.
 
+
+class Autor(models.Model):
+    def __unicode__(self):
+        return self.nome
+       
+    nome = models.CharField(max_length=50)
+    
+    
+
 class Livro (models.Model):
     
     def __unicode__(self):
@@ -14,12 +23,6 @@ class Livro (models.Model):
     edicao = models.IntegerField(max_length=2)
     autor = models.ManyToManyField(Autor)
 
-
-class Autor():
-    def __unicode__(self):
-        return self.nome
-       
-    autor = models.CharField(max_length=50)
     
 
 class Usuario (models.Model):
