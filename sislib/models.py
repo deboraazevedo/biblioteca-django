@@ -10,10 +10,17 @@ class Livro (models.Model):
             
     titulo = models.CharField(max_length=50)
     subtitulo = models.CharField(max_length=50, blank=True)
-    autor = models.CharField(max_length=50)
     editora = models.CharField(max_length=50)
     edicao = models.IntegerField(max_length=2)
+    autor = models.ManyToManyField(Autor)
 
+
+class Autor():
+    def __unicode__(self):
+        return self.nome
+       
+    autor = models.CharField(max_length=50)
+    
 
 class Usuario (models.Model):
     
